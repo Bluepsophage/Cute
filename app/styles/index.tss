@@ -1,0 +1,39 @@
+".container": {
+    backgroundColor:"black"
+}
+
+".eyes": {
+    width: 350
+}
+
+".eyeLeft": {
+    left: 0,
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/eye-le10.png'
+}
+
+".eyeLeftPanic": {
+    left: 0,
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/panic-10.png'
+}
+
+".eyeRight": {
+    right: 0,
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/eye-ri10.png'
+}
+
+".eyeRightPanic": {
+    right: 0,
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/panic-11.png'
+}
+
+".mouth": {
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/mouth10.png'
+}
+
+".mouthDuckface": {
+    image:'http://i59.servimg.com/u/f59/11/39/74/54/duckfa11.png'
+}
+
+".mouthPanic": {
+    image: 'http://i59.servimg.com/u/f59/11/39/74/54/panic-12.png'
+}

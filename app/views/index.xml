@@ -1,0 +1,9 @@
+<Alloy>
+    <Window class="container">
+        <View class="eyes">
+            <ImageView id="eyeLeft" class="eyeLeft" />
+            <ImageView id="eyeRight" class="eyeRight" />
+        </View>
+        <ImageView id="mouth" class="mouth" onClick="doClick"/>
+    </Window>
+</Alloy>
