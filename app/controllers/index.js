@@ -8,13 +8,8 @@ function doClick(e) {
     Titanium.Media.showCamera({
         //If a picture is captured correctly
         success:function(event) {
-            //If it is really a picture
-            if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
-                var imageView = Ti.UI.createImageView({
-                    image:event.media
-                });
-            }
-            else {
+            //If it is not a picture
+            if(event.mediaType != Titanium.Media.MEDIA_TYPE_PHOTO) {
                 alert("Got the wrong type back :"+event.mediaType);
             }
             //Finally we put the regular mouth back
