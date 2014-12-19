@@ -1,15 +1,22 @@
-function doClick(e) {
+function doDuckface(e) {
     //When the source element (the mouth) is clicked, the CSS class is changed, so it looks like a duckface
     $.addClass(e.source, "mouthDuckface");
     //The regular mouth class is removed
     $.removeClass(e.source, "mouth");
 
     //Then the camera is displayed
-    Titanium.Media.showCamera({
+    Ti.Media.showCamera({
         //If a picture is captured correctly
         success:function(event) {
             //If it is not a picture
-            if(event.mediaType != Titanium.Media.MEDIA_TYPE_PHOTO) {
+            if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+                var image = event.media;
+
+                //Put a handle on the file and write the content to it
+                var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'latest_image.jpg');
+                f.write(image);
+            }
+            else {
                 alert("Got the wrong type back :"+event.mediaType);
             }
             //Finally we put the regular mouth back
@@ -24,9 +31,9 @@ function doClick(e) {
         },
         //If an error occurs
         error:function(error) {
-            var a = Titanium.UI.createAlertDialog({title:'Camera'});
+            var a = Ti.UI.createAlertDialog({title:'Camera'});
             //If there is no camera
-            if (error.code == Titanium.Media.NO_CAMERA) {
+            if (error.code == Ti.Media.NO_CAMERA) {
                 a.setMessage('Please run this test on device');
             }
             else {
@@ -39,8 +46,23 @@ function doClick(e) {
     });
 }
 
+function openView() {
+    //Init of a new window
+    var win = Titanium.UI.createWindow();
+    //Retrieve last image
+    var myImage = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'latest_image.jpg').nativePath;
+
+    //Create image view
+    var contentWin = Ti.UI.createImageView({
+        image: myImage
+    });
+    //Append image view to window
+    win.add(contentWin);
+    win.open();
+}
+
 //Will execute when the device is shaken
-Titanium.Gesture.addEventListener('shake', function(e) {
+Ti.Gesture.addEventListener('shake', function(e) {
     //Access element by id to change the classes
     $.addClass($.mouth, "mouthPanic");
     $.removeClass($.mouth, "mouth");

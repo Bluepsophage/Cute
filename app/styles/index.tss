@@ -1,5 +1,6 @@
 ".container": {
-    backgroundColor:"black"
+    //backgroundColor:"black"
+    backgroundImage:'http://i59.servimg.com/u/f59/11/39/74/54/large_10.jpg'
 }
 
 ".eyes": {
